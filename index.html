@@ -6,43 +6,154 @@
   <title>Games Planet (Rampur U.P) – Arcade Box & Gaming Store</title>
   <meta name="description" content="Games Planet (Rampur U.P) – Rampur's biggest game shop offering Arcade Boxes, PS2, PS3, PS4, PS5 consoles & Coin Game Machines. Plug & Play arcade boxes — Single & Dual models, wired 2m cable." />
   <style>
-    :root{--accent:#0ea5a4;--dark:#0f172a;--card:#0b1220}
+    :root{
+      --accent:#0ea5a4;
+      --bg:#071428;
+      --card:#0b1220;
+      --glass: rgba(255,255,255,0.04);
+    }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;margin:0;background:linear-gradient(180deg,#081124 0%,#071428 100%);color:#e6eef6;line-height:1.5;-webkit-font-smoothing:antialiased}
+    body{
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      margin:0;
+      background:linear-gradient(180deg,#081124 0%,#071428 100%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+    }
     .container{max-width:1100px;margin:28px auto;padding:20px}
     header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;gap:12px}
     .brand{display:flex;gap:14px;align-items:center}
     .logo{width:60px;height:60px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px;color:#fff}
     h1{font-size:28px;margin:0;color:#e2f9f7;font-weight:900}
     p.lead{opacity:.95;margin:8px 0 0;font-size:15px;color:#cde2e6}
-    .highlight-box{background:rgba(255,255,255,0.04);padding:14px 18px;border-radius:12px;margin:14px 0;font-size:16px;line-height:1.65;color:#fff;border-left:4px solid var(--accent)}
+    .highlight-box{background:var(--glass);padding:14px 18px;border-radius:12px;margin:14px 0;font-size:16px;line-height:1.65;color:#fff;border-left:4px solid var(--accent)}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:14px}
     .card{background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.015));padding:14px;border-radius:12px;box-shadow:0 6px 22px rgba(2,6,23,0.45);border:1px solid rgba(255,255,255,0.04)}
-    .card img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+    .card img{width:100%;height:160px;object-fit:cover;border-radius:8px;cursor:zoom-in}
     .card h3{margin:10px 0 6px;font-size:18px;color:#eafefe}
     .meta{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:#cfe9f0}
     .price{font-weight:800;font-size:18px;color:var(--accent)}
     .features{font-size:13.5px;color:#bcdbe2;margin:8px 0}
     .buy-row{margin-top:10px}
     .btn{background:var(--accent);color:#042226;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:800;border:none;display:inline-block;text-align:center;width:100%;font-size:15px}
-    .btn:hover{opacity:0.9}
     .marketing{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:16px;border-radius:12px;margin-top:22px;color:#d8eff2;border:1px solid rgba(255,255,255,0.03)}
     .warranty{background:rgba(255,255,255,0.03);padding:12px;border-radius:10px;margin:14px 0;border-left:4px solid #ffd166;color:#ffeecf}
     footer{margin-top:28px;padding-top:16px;border-top:1px dashed rgba(255,255,255,0.05);color:#b7d4d8;font-size:14px}
     .console-title{margin:20px 0 8px;color:#dff8f6;font-weight:800;font-size:20px}
-    .wh-overlay{position:fixed;right:18px;bottom:18px;z-index:999}
-    .wh-btn{width:64px;height:64px;border-radius:999px;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(37,211,102,0.25);text-decoration:none;color:white}
-    .wh-btn img{width:34px;height:34px}
-    @media (max-width:520px){.card img{height:140px} .logo{width:52px;height:52px} h1{font-size:22px}}
     .price-badge{background:rgba(0,0,0,0.25);padding:6px 8px;border-radius:8px;font-weight:700}
+
+    /* ------------------ Modal / Lightbox styles ------------------ */
+    .img-modal {
+      position:fixed;
+      inset:0;
+      display:none; /* hidden by default */
+      align-items:center;
+      justify-content:center;
+      background:rgba(2,6,23,0.75);
+      z-index:2000;
+      padding:20px;
+    }
+    .img-modal.open { display:flex; }
+    .img-modal .modal-outer {
+      position:relative;
+      width: min(1100px, 96%);
+      max-height: 92%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:10px;
+      box-shadow:0 18px 60px rgba(0,0,0,0.6);
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    /* image container that allows panning */
+    .img-modal .img-wrap {
+      position:relative;
+      width:100%;
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:transparent;
+      overflow:hidden;
+      touch-action: none; /* we will handle touch pan */
+    }
+    .img-modal img.modal-img {
+      max-width:100%;
+      max-height:100%;
+      transform-origin: center center;
+      transition: transform 120ms ease;
+      user-select:none;
+      -webkit-user-drag:none;
+      cursor:grab;
+      will-change: transform;
+    }
+    .img-modal img.modal-img.grabbing { cursor:grabbing; }
+
+    /* controls */
+    .img-modal .modal-controls {
+      position:absolute;
+      top:12px;
+      right:12px;
+      display:flex;
+      gap:8px;
+      z-index:2100;
+    }
+    .img-modal .control-btn {
+      background:rgba(0,0,0,0.45);
+      color:#fff;
+      border:0;
+      padding:8px 10px;
+      border-radius:8px;
+      font-weight:700;
+      cursor:pointer;
+      backdrop-filter: blur(4px);
+    }
+    .img-modal .close-btn {
+      background:#ff6b6b;
+      color:#111;
+      padding:8px 10px;
+      border-radius:8px;
+      font-weight:900;
+    }
+    .img-modal .zoom-indicator {
+      position:absolute;
+      left:12px;
+      top:14px;
+      background:rgba(0,0,0,0.35);
+      color:#e6fff9;
+      padding:6px 8px;
+      border-radius:8px;
+      font-weight:700;
+      z-index:2100;
+    }
+
+    /* small caption area bottom */
+    .img-modal .caption {
+      position:absolute;
+      bottom:8px;
+      left:8px;
+      right:8px;
+      text-align:center;
+      font-size:14px;
+      color:#dff8f6;
+      z-index:2100;
+      pointer-events:none;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+    }
+
+    @media (max-width:520px){
+      .modal-outer { width: 100%; height: 85%; }
+      .img-modal .modal-controls { top:8px; right:8px; gap:6px; }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
       <div class="brand">
-        <div class="logo">GP</div>
+        <div class="logo" aria-hidden="true">GP</div>
         <div>
           <h1>Games Planet (Rampur U.P)</h1>
           <p class="lead">Arcade Box • Plug & Play Controllers • PS2 / PS3 / PC / Xbox 360 / PS4 — Wired 2m cable</p>
@@ -59,17 +170,18 @@
 
     <!-- PS2 -->
     <div class="console-title">PS2 Compatible — Wired (2m)</div>
-    <div class="grid">
+    <div class="grid" aria-live="polite">
       <article class="card">
-        <img src="single-arcade-box-ps2.jpg" alt="Single Arcade Box PS2 – Games Planet Rampur">
+        <img src="single-arcade-box-ps2.jpg" alt="Single Arcade Box PS2 – Games Planet Rampur" class="lightbox-target">
         <h3>Single Arcade Box — PS2 <span class="price-badge">₹4,499</span></h3>
         <p class="features">Compact single-player arcade stick — ideal for Tekken, Street Fighter and retro titles.</p>
         <div class="buy-row">
           <a class="btn" href="order-prefill.html?product=Single%20Arcade%20Box&variant=PS2&base=4499&pack=Single">Buy Now</a>
         </div>
       </article>
+
       <article class="card">
-        <img src="dual-arcade-box-ps2.jpg" alt="Dual Arcade Box PS2 – Games Planet Rampur">
+        <img src="dual-arcade-box-ps2.jpg" alt="Dual Arcade Box PS2 – Games Planet Rampur" class="lightbox-target">
         <h3>Dual Arcade Box — PS2 <span class="price-badge">₹6,499</span></h3>
         <p class="features">Full dual-player arcade box for multiplayer fun.</p>
         <div class="buy-row">
@@ -82,15 +194,16 @@
     <div class="console-title">PS3 & PC Compatible — Wired (2m)</div>
     <div class="grid">
       <article class="card">
-        <img src="single-arcade-box-ps3-pc.jpg" alt="Single Arcade Box PS3 PC – Games Planet Rampur">
+        <img src="single-arcade-box-ps3-pc.jpg" alt="Single Arcade Box PS3 PC – Games Planet Rampur" class="lightbox-target">
         <h3>Single Arcade Box — PS3 / PC <span class="price-badge">₹4,799</span></h3>
         <p class="features">USB plug & play — perfect for emulators and PS3 fighting titles.</p>
         <div class="buy-row">
           <a class="btn" href="order-prefill.html?product=Single%20Arcade%20Box&variant=PS3-PC&base=4799&pack=Single">Buy Now</a>
         </div>
       </article>
+
       <article class="card">
-        <img src="dual-arcade-box-ps3-pc.jpg" alt="Dual Arcade Box PS3 PC – Games Planet Rampur">
+        <img src="dual-arcade-box-ps3-pc.jpg" alt="Dual Arcade Box PS3 PC – Games Planet Rampur" class="lightbox-target">
         <h3>Dual Arcade Box — PS3 / PC <span class="price-badge">₹6,999</span></h3>
         <p class="features">Sturdy dual setup — tournament-ready controls.</p>
         <div class="buy-row">
@@ -103,15 +216,16 @@
     <div class="console-title">PS4 Compatible — Wired (2m)</div>
     <div class="grid">
       <article class="card">
-        <img src="single-arcade-box-ps4.jpg" alt="Single Arcade Box PS4 – Games Planet Rampur">
+        <img src="single-arcade-box-ps4.jpg" alt="Single Arcade Box PS4 – Games Planet Rampur" class="lightbox-target">
         <h3>Single Arcade Box — PS4 <span class="price-badge">₹6,999</span></h3>
         <p class="features">Premium single-player arcade stick for PS4 gaming.</p>
         <div class="buy-row">
           <a class="btn" href="order-prefill.html?product=Single%20Arcade%20Box&variant=PS4&base=6999&pack=Single">Buy Now</a>
         </div>
       </article>
+
       <article class="card">
-        <img src="dual-arcade-box-ps4.jpg" alt="Dual Arcade Box PS4 – Games Planet Rampur">
+        <img src="dual-arcade-box-ps4.jpg" alt="Dual Arcade Box PS4 – Games Planet Rampur" class="lightbox-target">
         <h3>Dual Arcade Box — PS4 <span class="price-badge">₹9,999</span></h3>
         <p class="features">Dual-player PS4 arcade box — for a true arcade feel.</p>
         <div class="buy-row">
@@ -127,7 +241,7 @@
 
     <h2 style="color:#00fff5;margin-top:30px;font-size:20px">Watch — Games Planet Video</h2>
     <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;border:1px solid rgba(255,255,255,0.04);margin-bottom:18px">
-      <iframe id="gpVideo" src="https://www.youtube.com/embed/krReVqHwT70?enablejsapi=1&autoplay=1&mute=1&playsinline=1&rel=0" frameborder="0" allow="autoplay; encrypted-media; fullscreen" style="position:absolute;top:0;left:0;width:100%;height:100%;" allowfullscreen></iframe>
+      <iframe id="gpVideo" src="https://www.youtube.com/embed/krReVqHwT70?enablejsapi=1&autoplay=1&mute=1&playsinline=1&rel=0" title="Games Planet Video" frameborder="0" allow="autoplay; encrypted-media; fullscreen" style="position:absolute;top:0;left:0;width:100%;height:100%;" allowfullscreen></iframe>
     </div>
 
     <div class="marketing">
@@ -143,12 +257,200 @@
     </footer>
   </div>
 
-  <div class="wh-overlay">
-    <a class="wh-btn" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Arcade%20Box" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp icon">
+  <!-- Modal / Lightbox element -->
+  <div class="img-modal" id="imgModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-outer" role="document">
+      <div class="img-wrap" id="imgWrap">
+        <img src="" alt="" class="modal-img" id="modalImg">
+        <div class="caption" id="modalCaption"></div>
+      </div>
+
+      <!-- top-right controls: close, zoom in, zoom out, reset -->
+      <div class="modal-controls" id="modalControls" aria-hidden="false">
+        <button class="control-btn close-btn" id="modalClose" title="Close (Esc)">✕</button>
+        <button class="control-btn" id="zoomOut" title="Zoom Out">−</button>
+        <button class="control-btn" id="zoomIn" title="Zoom In">+</button>
+        <button class="control-btn" id="zoomReset" title="Reset">Reset</button>
+      </div>
+
+      <div class="zoom-indicator" id="zoomIndicator">100%</div>
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp (kept as contact) -->
+  <div style="position:fixed;right:18px;bottom:18px;z-index:1500">
+    <a class="wh-btn" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Arcade%20Box" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:34px;height:34px">
     </a>
   </div>
 
+  <script>
+  (function(){
+    // Modal elements
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('modalImg');
+    const modalCaption = document.getElementById('modalCaption');
+    const imgWrap = document.getElementById('imgWrap');
+    const zoomIndicator = document.getElementById('zoomIndicator');
+    const closeBtn = document.getElementById('modalClose');
+    const zoomInBtn = document.getElementById('zoomIn');
+    const zoomOutBtn = document.getElementById('zoomOut');
+    const zoomResetBtn = document.getElementById('zoomReset');
+
+    // state
+    let scale = 1;
+    let minScale = 0.5;
+    let maxScale = 5;
+    let startX=0, startY=0, originX=0, originY=0;
+    let translateX = 0, translateY = 0;
+    let isPanning = false;
+    let pointerId = null;
+
+    // helper: update transform
+    function updateTransform() {
+      modalImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+      zoomIndicator.textContent = Math.round(scale*100) + '%';
+    }
+
+    // open modal when any .lightbox-target clicked
+    document.querySelectorAll('.lightbox-target').forEach(img => {
+      img.addEventListener('click', function(e){
+        const src = img.getAttribute('src');
+        const alt = img.getAttribute('alt') || '';
+        modalImg.src = src;
+        modalImg.alt = alt;
+        modalCaption.textContent = alt;
+        // reset state
+        scale = 1;
+        translateX = 0;
+        translateY = 0;
+        updateTransform();
+        // show
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden','false');
+        // focus for keyboard
+        closeBtn.focus();
+      });
+    });
+
+    // close modal
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden','true');
+      // clear src to stop large images retained in memory (optional)
+      // modalImg.src = '';
+    }
+    closeBtn.addEventListener('click', closeModal);
+
+    // close on background click (but not when clicking inner content)
+    modal.addEventListener('click', function(e){
+      if (e.target === modal) closeModal();
+    });
+
+    // keyboard: Esc to close, +/- keys to zoom
+    document.addEventListener('keydown', function(e){
+      if(modal.classList.contains('open')){
+        if (e.key === 'Escape') closeModal();
+        if (e.key === '+' || e.key === '=') { scale = Math.min(maxScale, scale + 0.25); updateTransform(); e.preventDefault(); }
+        if (e.key === '-') { scale = Math.max(minScale, scale - 0.25); updateTransform(); e.preventDefault(); }
+        if (e.key === '0') { scale = 1; translateX = 0; translateY = 0; updateTransform(); }
+      }
+    });
+
+    // zoom buttons
+    zoomInBtn.addEventListener('click', function(){ scale = Math.min(maxScale, +(scale + 0.25).toFixed(2)); updateTransform(); });
+    zoomOutBtn.addEventListener('click', function(){ scale = Math.max(minScale, +(scale - 0.25).toFixed(2)); updateTransform(); });
+    zoomResetBtn.addEventListener('click', function(){ scale = 1; translateX = 0; translateY = 0; updateTransform(); });
+
+    // wheel to zoom (when modal open)
+    modal.addEventListener('wheel', function(e){
+      if(!modal.classList.contains('open')) return;
+      e.preventDefault();
+      const delta = -e.deltaY;
+      const rect = modalImg.getBoundingClientRect();
+      // zoom towards mouse pointer (nice UX), adjust translate accordingly
+      const mouseX = e.clientX - rect.left - rect.width/2;
+      const mouseY = e.clientY - rect.top - rect.height/2;
+      const zoomStep = delta > 0 ? 1.12 : 1/1.12;
+      const newScale = Math.min(maxScale, Math.max(minScale, +(scale * zoomStep).toFixed(3)));
+      // adjust translate to keep point roughly under cursor
+      const scaleRatio = newScale/scale;
+      translateX = translateX - mouseX*(scaleRatio-1);
+      translateY = translateY - mouseY*(scaleRatio-1);
+      scale = newScale;
+      updateTransform();
+    }, { passive:false });
+
+    // Pointer events for pan (mouse & touch)
+    imgWrap.addEventListener('pointerdown', function(e){
+      if(!modal.classList.contains('open')) return;
+      // only pan when image is zoomed or always allow small movement
+      isPanning = true;
+      pointerId = e.pointerId;
+      imgWrap.setPointerCapture(pointerId);
+      startX = e.clientX;
+      startY = e.clientY;
+      modalImg.classList.add('grabbing');
+    });
+    imgWrap.addEventListener('pointermove', function(e){
+      if(!isPanning || e.pointerId !== pointerId) return;
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+      startX = e.clientX;
+      startY = e.clientY;
+      translateX += dx;
+      translateY += dy;
+      updateTransform();
+    });
+    imgWrap.addEventListener('pointerup', function(e){
+      if(e.pointerId !== pointerId) return;
+      isPanning = false;
+      imgWrap.releasePointerCapture(pointerId);
+      pointerId = null;
+      modalImg.classList.remove('grabbing');
+    });
+    imgWrap.addEventListener('pointercancel', function(e){
+      if(e.pointerId !== pointerId) return;
+      isPanning = false;
+      imgWrap.releasePointerCapture(pointerId);
+      pointerId = null;
+      modalImg.classList.remove('grabbing');
+    });
+
+    // Touch: double-tap to toggle zoom (simple)
+    let lastTap = 0;
+    imgWrap.addEventListener('touchend', function(e){
+      const currentTime = Date.now();
+      const tapLength = currentTime - lastTap;
+      if (tapLength < 300 && tapLength > 0) {
+        // double tap
+        if (scale === 1) scale = 2.2;
+        else { scale = 1; translateX = 0; translateY = 0; }
+        updateTransform();
+      }
+      lastTap = currentTime;
+    });
+
+    // Prevent image dragging default
+    modalImg.addEventListener('dragstart', function(e){ e.preventDefault(); });
+
+    // Accessibility: trap focus inside modal controls when open (basic)
+    modal.addEventListener('keydown', function(e){
+      if(e.key === 'Tab' && modal.classList.contains('open')){
+        // keep focus on closeBtn as simplest trap
+        closeBtn.focus();
+        e.preventDefault();
+      }
+    });
+
+    // On window resize, reset small adjustments
+    window.addEventListener('resize', function(){
+      // keep current scale & translate; optional: clamp translate to visible area
+    });
+  })();
+  </script>
+
+  <!-- YouTube autoplay script (muted) -->
   <script>
     (function(){
       var tag=document.createElement('script');
@@ -157,7 +459,7 @@
       firstScript.parentNode.insertBefore(tag,firstScript);
       window.onYouTubeIframeAPIReady=function(){
         try{
-          var player=new YT.Player('gpVideo',{playerVars:{'playsinline':1},events:{onReady:function(e){try{e.target.mute();e.target.playVideo();}catch(err){}}}});
+          new YT.Player('gpVideo',{playerVars:{'playsinline':1},events:{onReady:function(e){try{e.target.mute();e.target.playVideo();}catch(err){}}}});
         }catch(err){console.warn(err)}
       };
     })();
