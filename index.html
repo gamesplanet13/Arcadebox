@@ -26,7 +26,8 @@
     .features{font-size:13.5px;color:#bcdbe2;margin:8px 0}
     .buy-row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
     .btn{background:var(--accent);color:#042226;padding:9px 12px;border-radius:10px;text-decoration:none;font-weight:800;border:none;display:inline-flex;align-items:center;gap:8px}
-    .btn.alt{background:transparent;border:1px solid rgba(255,255,255,0.08);color:#bfe8e5}
+    .btn.alt{background:transparent;border:1px solid rgba(255,255,255,0.08);color:#bfe8e5;padding:8px 12px}
+    .btn.order { background:#ffd166; color:#10211a; font-weight:800; }
     .marketing{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:16px;border-radius:12px;margin-top:22px;color:#d8eff2;border:1px solid rgba(255,255,255,0.03)}
     .warranty{background:rgba(255,255,255,0.03);padding:12px;border-radius:10px;margin:14px 0;border-left:4px solid #ffd166;color:#ffeecf}
     footer{margin-top:28px;padding-top:16px;border-top:1px dashed rgba(255,255,255,0.05);color:#b7d4d8;font-size:14px}
@@ -35,6 +36,8 @@
     .wh-btn{width:64px;height:64px;border-radius:999px;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(37,211,102,0.25);text-decoration:none;color:white}
     .wh-btn img{width:34px;height:34px}
     @media (max-width:520px){.card img{height:140px} .logo{width:52px;height:52px} h1{font-size:22px}}
+    /* small helper to show product price on hover (optional) */
+    .price-badge{background:rgba(0,0,0,0.25);padding:6px 8px;border-radius:8px;font-weight:700}
   </style>
 </head>
 <body>
@@ -61,23 +64,27 @@
     <!-- PS2 -->
     <div class="console-title">PS2 Compatible — Wired (2m)</div>
     <div class="grid" aria-live="polite">
-      <article class="card">
+      <article class="card" data-product="Single Arcade Box" data-variant="PS2" data-price="4499" data-pack="Single">
         <img src="single-arcade-box-ps2.jpg" alt="Single Arcade Box PS2 – Games Planet Rampur">
-        <h3>Single Arcade Box — PS2</h3>
+        <h3>Single Arcade Box — PS2 <span class="price-badge">₹4,499</span></h3>
         <div class="meta"><div>Wired (2m) • Plug & Play</div><div class="price">₹4,499</div></div>
         <p class="features">Compact single-player arcade stick — ideal for Tekken, Street Fighter and retro titles.</p>
         <div class="buy-row">
-          <a class="btn" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Single%20Arcade%20Box%20for%20PS2" target="_blank" rel="noopener">Buy: Single (PS2)</a>
+          <!-- Order (prefill) button -->
+          <a class="btn order" href="order-prefill.html?product=Single%20Arcade%20Box&variant=PS2&base=4499&pack=Single" title="Order Single Arcade Box for PS2 (prefill)">Order (Prefill)</a>
+          <!-- WhatsApp buy -->
+          <a class="btn" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Single%20Arcade%20Box%20for%20PS2" target="_blank" rel="noopener">Buy on WhatsApp</a>
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" data-product="Dual Arcade Box" data-variant="PS2" data-price="6499" data-pack="Dual">
         <img src="dual-arcade-box-ps2.jpg" alt="Dual Arcade Box PS2 – Games Planet Rampur">
-        <h3>Dual Arcade Box — PS2</h3>
+        <h3>Dual Arcade Box — PS2 <span class="price-badge">₹6,499</span></h3>
         <div class="meta"><div>Wired (2m) • 2-Player</div><div class="price">₹6,499</div></div>
         <p class="features">Full dual-player arcade box for multiplayer fun.</p>
         <div class="buy-row">
-          <a class="btn" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Dual%20Arcade%20Box%20for%20PS2" target="_blank" rel="noopener">Buy: Dual (PS2)</a>
+          <a class="btn order" href="order-prefill.html?product=Dual%20Arcade%20Box&variant=PS2&base=6499&pack=Dual" title="Order Dual Arcade Box for PS2 (prefill)">Order (Prefill)</a>
+          <a class="btn" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Dual%20Arcade%20Box%20for%20PS2" target="_blank" rel="noopener">Buy on WhatsApp</a>
         </div>
       </article>
     </div>
@@ -85,23 +92,25 @@
     <!-- PS3 / PC -->
     <div class="console-title">PS3 & PC Compatible — Wired (2m / USB)</div>
     <div class="grid">
-      <article class="card">
+      <article class="card" data-product="Single Arcade Box" data-variant="PS3-PC" data-price="4799" data-pack="Single">
         <img src="single-arcade-box-ps3-pc.jpg" alt="Single Arcade Box PS3 PC – Games Planet Rampur">
-        <h3>Single Arcade Box — PS3 / PC</h3>
-        <div class="meta"><div>USB Wired (2m) • Plug & Play</div><div class="price">₹4,799</div></div>
+        <h3>Single Arcade Box — PS3 / PC <span class="price-badge">₹4,799</span></h3>
+        <div class="meta"><div>USB Wired (2m)</div><div class="price">₹4,799</div></div>
         <p class="features">USB plug & play — perfect for emulators and PS3 fighting titles.</p>
         <div class="buy-row">
-          <a class="btn" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Single%20Arcade%20Box%20for%20PS3%20and%20PC" target="_blank" rel="noopener">Buy: Single (PS3/PC)</a>
+          <a class="btn order" href="order-prefill.html?product=Single%20Arcade%20Box&variant=PS3-PC&base=4799&pack=Single" title="Order Single Arcade Box for PS3/PC (prefill)">Order (Prefill)</a>
+          <a class="btn" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Single%20Arcade%20Box%20for%20PS3%20and%20PC" target="_blank" rel="noopener">Buy on WhatsApp</a>
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" data-product="Dual Arcade Box" data-variant="PS3-PC" data-price="6999" data-pack="Dual">
         <img src="dual-arcade-box-ps3-pc.jpg" alt="Dual Arcade Box PS3 PC – Games Planet Rampur">
-        <h3>Dual Arcade Box — PS3 / PC</h3>
-        <div class="meta"><div>USB Wired (2m) • 2-Player</div><div class="price">₹6,999</div></div>
+        <h3>Dual Arcade Box — PS3 / PC <span class="price-badge">₹6,999</span></h3>
+        <div class="meta"><div>USB Wired (2m)</div><div class="price">₹6,999</div></div>
         <p class="features">Sturdy dual setup — tournament-ready controls.</p>
         <div class="buy-row">
-          <a class="btn" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Dual%20Arcade%20Box%20for%20PS3%20and%20PC" target="_blank" rel="noopener">Buy: Dual (PS3/PC)</a>
+          <a class="btn order" href="order-prefill.html?product=Dual%20Arcade%20Box&variant=PS3-PC&base=6999&pack=Dual" title="Order Dual Arcade Box for PS3/PC (prefill)">Order (Prefill)</a>
+          <a class="btn" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Dual%20Arcade%20Box%20for%20PS3%20and%20PC" target="_blank" rel="noopener">Buy on WhatsApp</a>
         </div>
       </article>
     </div>
@@ -109,23 +118,25 @@
     <!-- PS4 -->
     <div class="console-title">PS4 Compatible — Wired (2m)</div>
     <div class="grid">
-      <article class="card">
+      <article class="card" data-product="Single Arcade Box" data-variant="PS4" data-price="6999" data-pack="Single">
         <img src="single-arcade-box-ps4.jpg" alt="Single Arcade Box PS4 – Games Planet Rampur">
-        <h3>Single Arcade Box — PS4</h3>
+        <h3>Single Arcade Box — PS4 <span class="price-badge">₹6,999</span></h3>
         <div class="meta"><div>Wired (2m)</div><div class="price">₹6,999</div></div>
         <p class="features">Premium single-player arcade stick for PS4 gaming.</p>
         <div class="buy-row">
-          <a class="btn" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Single%20Arcade%20Box%20for%20PS4" target="_blank" rel="noopener">Buy: Single (PS4)</a>
+          <a class="btn order" href="order-prefill.html?product=Single%20Arcade%20Box&variant=PS4&base=6999&pack=Single" title="Order Single Arcade Box for PS4 (prefill)">Order (Prefill)</a>
+          <a class="btn" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Single%20Arcade%20Box%20for%20PS4" target="_blank" rel="noopener">Buy on WhatsApp</a>
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" data-product="Dual Arcade Box" data-variant="PS4" data-price="9999" data-pack="Dual">
         <img src="dual-arcade-box-ps4.jpg" alt="Dual Arcade Box PS4 – Games Planet Rampur">
-        <h3>Dual Arcade Box — PS4</h3>
+        <h3>Dual Arcade Box — PS4 <span class="price-badge">₹9,999</span></h3>
         <div class="meta"><div>Wired (2m)</div><div class="price">₹9,999</div></div>
         <p class="features">Dual-player PS4 arcade box — for a true arcade feel.</p>
         <div class="buy-row">
-          <a class="btn" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Dual%20Arcade%20Box%20for%20PS4" target="_blank" rel="noopener">Buy: Dual (PS4)</a>
+          <a class="btn order" href="order-prefill.html?product=Dual%20Arcade%20Box&variant=PS4&base=9999&pack=Dual" title="Order Dual Arcade Box for PS4 (prefill)">Order (Prefill)</a>
+          <a class="btn" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Dual%20Arcade%20Box%20for%20PS4" target="_blank" rel="noopener">Buy on WhatsApp</a>
         </div>
       </article>
     </div>
@@ -136,21 +147,20 @@
       <p>Product 100 % tested and comes with 1 day testing warrenty, repairing also available, courier charges of all side bare by customer, in any case product is not returnable or no Replacment.</p>
     </div>
 
-    <!-- Video (bottom) -->
+    <!-- Video -->
     <h2 style="color:#00fff5;margin-top:30px;font-size:20px">Watch — Games Planet Video</h2>
     <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;border:1px solid rgba(255,255,255,0.04);margin-bottom:18px">
       <iframe id="gpVideo" src="https://www.youtube.com/embed/krReVqHwT70?enablejsapi=1&autoplay=1&mute=1&playsinline=1&rel=0" title="Games Planet Video" frameborder="0" allow="autoplay; encrypted-media; fullscreen" style="position:absolute;top:0;left:0;width:100%;height:100%;" allowfullscreen></iframe>
     </div>
 
-    <!-- Marketing / Long Description (below video) -->
+    <!-- Marketing -->
     <div class="marketing" aria-label="Product marketing">
       <h2 style="margin-top:0;color:#fff;font-size:18px">🎮 Arcade Box for PS2, PS3, PC, Xbox 360 & GameBox – Plug & Play Fun!</h2>
       <p>Bring back the classic arcade experience with the all-new <strong>Games Planet Arcade Box</strong> — the ultimate plug & play fight-stick controller for your favorite consoles! Whether you’re battling in Tekken Tag 2, smashing combos in Street Fighter, or reliving retro classics, this arcade box gives you the real arcade feel right at home.</p>
       <p><strong>🔥 Available in Two Versions:</strong><br>🎮 Dual Arcade Box: Perfect for 2-player action – play with friends or family<br>🕹️ Single Arcade Box: Compact & portable, ideal for solo gameplay</p>
       <p><strong>✅ Works on:</strong> PS2 / PS3 / PC / Xbox 360 / GameBox. Plug & Play — No software needed. Premium joystick and buttons — Ultra-responsive, long-life durability. LED lighting design (on select models). High-quality USB connection — lag-free gameplay.</p>
       <p><strong>Ideal for:</strong> Tekken, Street Fighter, Mortal Kombat, Dragon Ball Z, KOF, Metal Slug.</p>
-      <p style="margin:6px 0 0"><strong>Buy Links:</strong> Single Arcade Box: <a style="color:#00ffe0" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Single%20Arcade%20Box" target="_blank" rel="noopener">WhatsApp</a> • Dual Arcade Box: <a style="color:#00ffe0" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Dual%20Arcade%20Box" target="_blank" rel="noopener">WhatsApp</a></p>
-      <div style="margin-top:10px;color:#9fd8d5;font-size:13px"><strong>SEO Tags:</strong> Arcade Box, Dual Arcade Box, Single Arcade Box, Pandora Box, Arcade Controller, Tekken Arcade Controller, Street Fighter Joystick, PS2 Gamepad, PS3 Gamepad, Xbox 360 Game Controller, PC Arcade Stick, Retro Arcade Game Machine.</div>
+      <p style="margin:6px 0 0"><strong>Buy Links:</strong> Use the <em>Order (Prefill)</em> button to open order page with selected product & price auto-filled, or use <em>Buy on WhatsApp</em> to message us directly.</p>
     </div>
 
     <footer aria-label="Footer">
@@ -174,14 +184,7 @@
       firstScript.parentNode.insertBefore(tag,firstScript);
       window.onYouTubeIframeAPIReady=function(){
         try{
-          var player=new YT.Player('gpVideo',{
-            playerVars:{'playsinline':1},
-            events:{
-              onReady:function(e){
-                try{ e.target.mute(); e.target.playVideo(); }catch(err){console.warn(err)}
-              }
-            }
-          });
+          var player=new YT.Player('gpVideo',{playerVars:{'playsinline':1},events:{onReady:function(e){try{e.target.mute();e.target.playVideo();}catch(err){}}}});
         }catch(err){console.warn(err)}
       };
     })();
