@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="hi">
 <head>
   <meta charset="utf-8" />
@@ -11,7 +10,7 @@
     *{box-sizing:border-box}
     body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;margin:0;background:linear-gradient(180deg,#081124 0%,#071428 100%);color:#e6eef6;line-height:1.5}
     .container{max-width:1100px;margin:28px auto;padding:20px}
-    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;gap:12px}
     .brand{display:flex;gap:14px;align-items:center}
     .logo{width:60px;height:60px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px;color:#fff}
     h1{font-size:28px;margin:0;color:#e2f9f7;font-weight:900}
@@ -33,17 +32,18 @@
     .wh-overlay{position:fixed;right:18px;bottom:18px;z-index:999}
     .wh-btn{width:64px;height:64px;border-radius:999px;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(37,211,102,0.25);text-decoration:none;color:white}
     .wh-btn img{width:34px;height:34px}
-    .tag{display:inline-block;background:rgba(255,255,255,0.05);padding:6px 10px;border-radius:999px;font-size:12px;color:#bbebeb}
     .section{margin-top:34px}
     h2{color:#00fff5;margin-bottom:10px;font-size:22px}
     .desc p{color:#d8eff2;font-size:15px;margin:10px 0}
     ul.specs{color:#cfe9f0}
     .warranty{background:rgba(255,255,255,0.03);padding:12px;border-radius:10px;margin:14px 0;border-left:4px solid #ffd166;color:#ffeecf}
     .seo{font-size:13px;color:#9fd8d5;margin-top:6px}
+    @media (max-width:520px){ .card img{height:140px} body{padding-bottom:90px} }
   </style>
 </head>
 <body>
   <div class="container">
+    <!-- Header -->
     <header>
       <div class="brand">
         <div class="logo">GP</div>
@@ -53,132 +53,144 @@
         </div>
       </div>
       <div style="text-align:right">
-        <div class="tag">Rampur's #1 Game Shop</div>
         <div style="font-size:13px;color:#9fbfc4;margin-top:6px">Contact: <strong>+91 7983624797</strong></div>
       </div>
-    </header><!-- Rampur highlight immediately under title -->
-<div class="highlight-box">
-  🔥 <strong>रामपुर की सबसे बड़ी और एकमात्र गेम शॉप</strong> जहाँ आपको मिलेंगे सभी गेम कंसोल्स — <strong>PS2, PS3, PS4, PS5, और Coin वाली Game Machines।</strong> यहाँ हर तरह के Games, Controllers, Accessories और Arcade Machines उपलब्ध हैं। अगर आप सच्चे गेमर हैं, तो यह वीडियो आपके लिए है!
-</div>
+    </header>
 
-<!-- Products: PS2 -->
-<div class="console-title">PS2 Compatible — Wired (2m)</div>
-<div class="grid">
-  <article class="card">
-    <img src="https://via.placeholder.com/600x360?text=Single+Arcade+Box+PS2" alt="Single Arcade Box PS2">
-    <h3>Single Arcade Box — PS2</h3>
-    <div class="meta"><div>Wired (2m) • Plug & Play</div><div class="price">₹4,499</div></div>
-    <p class="features">Compact single-player arcade stick — ideal for Tekken, Street Fighter and retro arcade titles.</p>
-    <div class="buy-row">
-      <a class="btn" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Single%20Arcade%20Box%20for%20PS2" target="_blank">Buy: Single (PS2) — ₹4,499</a>
+    <!-- Rampur highlight right under title -->
+    <div class="highlight-box">
+      🔥 <strong>रामपुर की सबसे बड़ी और एकमात्र गेम शॉप</strong> जहाँ आपको मिलेंगे सभी गेम कंसोल्स — <strong>PS2, PS3, PS4, PS5, और Coin वाली Game Machines।</strong> यहाँ हर तरह के Games, Controllers, Accessories और Arcade Machines उपलब्ध हैं। अगर आप सच्चे गेमर हैं, तो यह वीडियो आपके लिए है!
     </div>
-  </article>
-  <article class="card">
-    <img src="https://via.placeholder.com/600x360?text=Dual+Arcade+Box+PS2" alt="Dual Arcade Box PS2">
-    <h3>Dual Arcade Box — PS2</h3>
-    <div class="meta"><div>Wired (2m) • 2-Player</div><div class="price">₹6,499</div></div>
-    <p class="features">Full dual-player arcade box for local multiplayer and parties.</p>
-    <div class="buy-row">
-      <a class="btn" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Dual%20Arcade%20Box%20for%20PS2" target="_blank">Buy: Dual (PS2) — ₹6,499</a>
+
+    <!-- Products: PS2 -->
+    <div class="console-title">PS2 Compatible — Wired (2m)</div>
+    <div class="grid">
+      <article class="card">
+        <img src="images/arcade-box/ps2/single-arcade-box-ps2.jpg" alt="Single Arcade Box PS2">
+        <h3>Single Arcade Box — PS2</h3>
+        <div class="meta"><div>Wired (2m) • Plug & Play</div><div class="price">₹4,499</div></div>
+        <p class="features">Compact single-player arcade stick — ideal for Tekken, Street Fighter and retro arcade titles.</p>
+        <div class="buy-row">
+          <a class="btn" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Single%20Arcade%20Box%20for%20PS2" target="_blank">Buy: Single (PS2) — ₹4,499</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="images/arcade-box/ps2/dual-arcade-box-ps2.jpg" alt="Dual Arcade Box PS2">
+        <h3>Dual Arcade Box — PS2</h3>
+        <div class="meta"><div>Wired (2m) • 2-Player</div><div class="price">₹6,499</div></div>
+        <p class="features">Full dual-player arcade box for local multiplayer and parties.</p>
+        <div class="buy-row">
+          <a class="btn" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Dual%20Arcade%20Box%20for%20PS2" target="_blank">Buy: Dual (PS2) — ₹6,499</a>
+        </div>
+      </article>
     </div>
-  </article>
-</div>
 
-<!-- Products: PS3 / PC -->
-<div class="console-title">PS3 & PC Compatible — Wired (2m / USB)</div>
-<div class="grid">
-  <article class="card">
-    <img src="https://via.placeholder.com/600x360?text=Single+Arcade+Box+PS3-PC" alt="Single Arcade Box PS3 PC">
-    <h3>Single Arcade Box — PS3 / PC</h3>
-    <div class="meta"><div>USB Wired (2m) • Plug & Play</div><div class="price">₹4,799</div></div>
-    <p class="features">USB plug & play — works great with emulators and PS3 fighting titles.</p>
-    <div class="buy-row">
-      <a class="btn" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Single%20Arcade%20Box%20for%20PS3%20and%20PC" target="_blank">Buy: Single (PS3/PC) — ₹4,799</a>
+    <!-- Products: PS3 / PC -->
+    <div class="console-title">PS3 & PC Compatible — Wired (2m / USB)</div>
+    <div class="grid">
+      <article class="card">
+        <img src="images/arcade-box/ps3-pc/single-arcade-box-ps3-pc.jpg" alt="Single Arcade Box PS3 PC">
+        <h3>Single Arcade Box — PS3 / PC</h3>
+        <div class="meta"><div>USB Wired (2m) • Plug & Play</div><div class="price">₹4,799</div></div>
+        <p class="features">USB plug & play — works great with emulators and PS3 fighting titles.</p>
+        <div class="buy-row">
+          <a class="btn" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Single%20Arcade%20Box%20for%20PS3%20and%20PC" target="_blank">Buy: Single (PS3/PC) — ₹4,799</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="images/arcade-box/ps3-pc/dual-arcade-box-ps3-pc.jpg" alt="Dual Arcade Box PS3 PC">
+        <h3>Dual Arcade Box — PS3 / PC</h3>
+        <div class="meta"><div>USB Wired (2m) • 2-Player</div><div class="price">₹6,999</div></div>
+        <p class="features">Sturdy dual setup with USB for PS3 and PC — tournament-ready buttons and stick.</p>
+        <div class="buy-row">
+          <a class="btn" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Dual%20Arcade%20Box%20for%20PS3%20and%20PC" target="_blank">Buy: Dual (PS3/PC) — ₹6,999</a>
+        </div>
+      </article>
     </div>
-  </article>
-  <article class="card">
-    <img src="https://via.placeholder.com/600x360?text=Dual+Arcade+Box+PS3-PC" alt="Dual Arcade Box PS3 PC">
-    <h3>Dual Arcade Box — PS3 / PC</h3>
-    <div class="meta"><div>USB Wired (2m) • 2-Player</div><div class="price">₹6,999</div></div>
-    <p class="features">Sturdy dual setup with USB for PS3 and PC — tournament-ready buttons and stick.</p>
-    <div class="buy-row">
-      <a class="btn" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Dual%20Arcade%20Box%20for%20PS3%20and%20PC" target="_blank">Buy: Dual (PS3/PC) — ₹6,999</a>
+
+    <!-- Products: PS4 -->
+    <div class="console-title">PS4 Compatible — Wired (2m)</div>
+    <div class="grid">
+      <article class="card">
+        <img src="images/arcade-box/ps4/single-arcade-box-ps4.jpg" alt="Single Arcade Box PS4">
+        <h3>Single Arcade Box — PS4</h3>
+        <div class="meta"><div>Wired (2m) • Plug & Play</div><div class="price">₹6,999</div></div>
+        <p class="features">Wired fight-stick tuned for PS4 fighting games and emulators.</p>
+        <div class="buy-row">
+          <a class="btn" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Single%20Arcade%20Box%20for%20PS4" target="_blank">Buy: Single (PS4) — ₹6,999</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="images/arcade-box/ps4/dual-arcade-box-ps4.jpg" alt="Dual Arcade Box PS4">
+        <h3>Dual Arcade Box — PS4</h3>
+        <div class="meta"><div>Wired (2m) • 2-Player</div><div class="price">₹9,999</div></div>
+        <p class="features">Premium dual-player arcade box for PS4 — durable, responsive and ready for competition.</p>
+        <div class="buy-row">
+          <a class="btn" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Dual%20Arcade%20Box%20for%20PS4" target="_blank">Buy: Dual (PS4) — ₹9,999</a>
+        </div>
+      </article>
     </div>
-  </article>
-</div>
 
-<!-- Products: PS4 -->
-<div class="console-title">PS4 Compatible — Wired (2m)</div>
-<div class="grid">
-  <article class="card">
-    <img src="https://via.placeholder.com/600x360?text=Single+Arcade+Box+PS4" alt="Single Arcade Box PS4">
-    <h3>Single Arcade Box — PS4</h3>
-    <div class="meta"><div>Wired (2m) • Plug & Play</div><div class="price">₹6,999</div></div>
-    <p class="features">Wired fight-stick tuned for PS4 fighting games and emulators.</p>
-    <div class="buy-row">
-      <a class="btn" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Single%20Arcade%20Box%20for%20PS4" target="_blank">Buy: Single (PS4) — ₹6,999</a>
+    <!-- Warranty / Returns (exact text from you) -->
+    <div class="warranty">
+      <strong>Warranty & Returns:</strong>
+      <p>Product 100 % tested and comes with 1 day testing warrenty, repairing also available,  courier charges of all side bare by customer, 
+in any case product is not returnable or no Replacment,</p>
     </div>
-  </article>
-  <article class="card">
-    <img src="https://via.placeholder.com/600x360?text=Dual+Arcade+Box+PS4" alt="Dual Arcade Box PS4">
-    <h3>Dual Arcade Box — PS4</h3>
-    <div class="meta"><div>Wired (2m) • 2-Player</div><div class="price">₹9,999</div></div>
-    <p class="features">Premium dual-player arcade box for PS4 — durable, responsive and ready for competition.</p>
-    <div class="buy-row">
-      <a class="btn" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Dual%20Arcade%20Box%20for%20PS4" target="_blank">Buy: Dual (PS4) — ₹9,999</a>
+
+    <!-- About / Uses -->
+    <div class="section desc">
+      <h2>About & Uses</h2>
+      <p><strong>Games Planet Arcade Box</strong> brings classic arcade controls to modern consoles. Great for fighting games (Tekken, Street Fighter, Mortal Kombat), retro shooters (Metal Slug) and emulator play on PC.</p>
+      <p>All products are wired with <strong>2 metre cable</strong> (as listed). Choose single or dual models per console. For custom LED, bulk orders or videos, contact on WhatsApp.</p>
     </div>
-  </article>
-</div>
 
-<!-- Warranty / Returns block (exact user text) -->
-<div class="warranty">
-  <strong>Warranty & Returns:</strong>
-  <p>Product 100 % tested and comes with 1 day testing warrenty, repairing also available,  courier charges of all side bare by customer,
+    <!-- Marketing block moved near bottom -->
+    <div class="marketing">
+      <h2 style="margin-top:0;color:#fff;font-size:18px">🎮 Arcade Box for PS2, PS3, PC, Xbox 360 & GameBox – Plug & Play Fun!</h2>
+      <p>Bring back the classic arcade experience with the all-new <strong>Games Planet Arcade Box</strong> — the ultimate plug & play fight-stick controller for your favorite consoles! Whether you’re battling in Tekken Tag 2, smashing combos in Street Fighter, or reliving retro classics, this arcade box gives you the real arcade feel right at home.</p>
+      <p><strong>🔥 Available in Two Versions:</strong><br>🎮 Dual Arcade Box: Perfect for 2-player action – play with friends or family<br>🕹️ Single Arcade Box: Compact & portable, ideal for solo gameplay</p>
+      <p><strong>✅ Works on:</strong> PS2 / PS3 / PC / Xbox 360 / GameBox. Plug & Play — No software needed. Premium joystick and buttons — Ultra-responsive, long-life durability. LED lighting design (on select models). High-quality USB connection — lag-free gameplay.</p>
+      <p><strong>Ideal for:</strong> Tekken, Street Fighter, Mortal Kombat, Dragon Ball Z, KOF, Metal Slug.</p>
+      <p style="margin:6px 0 0"><strong>Buy Links:</strong> Single Arcade Box: <a style="color:#00ffe0" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Single%20Arcade%20Box">WhatsApp</a> • Dual Arcade Box: <a style="color:#00ffe0" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Dual%20Arcade%20Box">WhatsApp</a></p>
+      <div class="seo">
+        <strong>SEO Tags:</strong> Arcade Box, Dual Arcade Box, Single Arcade Box, Pandora Box, Arcade Controller, Tekken Arcade Controller, Street Fighter Joystick, PS2 Gamepad, PS3 Gamepad, Xbox 360 Game Controller, PC Arcade Stick, Retro Arcade Game Machine.
+      </div>
+    </div>
 
-in any case product is not returnable or no Replacment,</p> </div>
+    <!-- Footer -->
+    <footer>
+      <strong>Specifications & Notes:</strong>
+      <ul class="specs">
+        <li>All products are <strong>wired</strong> and include a <strong>2 metre cable</strong>.</li>
+        <li>Prices shown are retail — Single/Dual as listed per console.</li>
+        <li>Buy links open WhatsApp chat for quick ordering: <a href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20an%20Arcade%20Box">+91 7983624797</a>.</li>
+        <li>Images are placeholders — replace with real product photos in the same paths for best results.</li>
+      </ul>
+    </footer>
+  </div>
 
-<div class="section desc">
-  <h2>About & Uses</h2>
-  <p><strong>Games Planet Arcade Box</strong> brings classic arcade controls to modern consoles. Great for fighting games (Tekken, Street Fighter, Mortal Kombat), retro shooters (Metal Slug) and emulator play on PC.</p>
-  <p>All products are wired with <strong>2 metre cable</strong> (as listed). Choose single or dual models per console. For custom LED, bulk orders or videos, contact on WhatsApp.</p>
-</div>
-
-<footer>
-  <strong>Specifications & Notes:</strong>
-  <ul class="specs">
-    <li>All products are <strong>wired</strong> and include a <strong>2 metre cable</strong>.</li>
-    <li>Prices shown are retail — Single/Dual as listed per console.</li>
-    <li>Buy links open WhatsApp chat for quick ordering: <a href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20an%20Arcade%20Box">+91 7983624797</a>.</li>
-    <li>Images are placeholders; real product photos will replace them on final listing.</li>
-  </ul>
-</footer>
-
-  </div>  <!-- WhatsApp floating button -->  <div class="wh-overlay">
+  <!-- WhatsApp floating button -->
+  <div class="wh-overlay">
     <a class="wh-btn" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20an%20Arcade%20Box" target="_blank" aria-label="WhatsApp">
       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA">
     </a>
-  </div>  <!-- Marketing (moved to bottom as requested) --><div class="marketing" style="margin-top:6px;">
-  <h2 style="margin-top:0;color:#fff;font-size:18px">🎮 Arcade Box for PS2, PS3, PC, Xbox 360 & GameBox – Plug & Play Fun!</h2>
-  <p>Bring back the classic arcade experience with the all-new <strong>Games Planet Arcade Box</strong> — the ultimate plug & play fight-stick controller for your favorite consoles! Whether you’re battling in Tekken Tag 2, smashing combos in Street Fighter, or reliving retro classics, this arcade box gives you the real arcade feel right at home.</p>
-  <p><strong>🔥 Available in Two Versions:</strong><br>🎮 Dual Arcade Box: Perfect for 2-player action – play with friends or family<br>🕹️ Single Arcade Box: Compact & portable, ideal for solo gameplay</p>
-  <p><strong>✅ Works on:</strong> PS2 / PS3 / PC / Xbox 360 / GameBox. Plug & Play — No software needed. Premium joystick and buttons — Ultra-responsive, long-life durability. LED lighting design (on select models). High-quality USB connection — lag-free gameplay.</p>
-  <p><strong>Ideal for:</strong> Tekken, Street Fighter, Mortal Kombat, Dragon Ball Z, KOF, Metal Slug.</p>
-  <p style="margin:6px 0 0"><strong>Buy Links:</strong><br>Single Arcade Box: <a style="color:#00ffe0" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Single%20Arcade%20Box%20">WhatsApp</a> • Dual Arcade Box: <a style="color:#00ffe0" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Dual%20Arcade%20Box%20">WhatsApp</a></p>
-  <div class="seo">
-    <strong>SEO Tags:</strong> Arcade Box, Dual Arcade Box, Single Arcade Box, Pandora Box, Arcade Controller, Tekken Arcade Controller, Street Fighter Joystick, PS2 Gamepad, PS3 Gamepad, Xbox 360 Game Controller, PC Arcade Stick, Retro Arcade Game Machine.
   </div>
-</div>
 
-<!-- Embedded Video (PC & Mobile compatible, autoplay muted for browsers) - placed at very bottom -->
-
-  <div class="container" style="margin-top:22px;margin-bottom:22px;">
+  <!-- Video at very bottom (autoplay muted & playsinline) -->
+  <div style="max-width:1100px;margin:18px auto;padding:0 20px 60px 20px;">
     <h2 style="color:#00fff5;margin-bottom:10px;font-size:20px">Watch — Games Planet Video</h2>
-    <div class="video-wrap" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;border:1px solid rgba(255,255,255,0.04)">
+    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;border:1px solid rgba(255,255,255,0.04)">
       <iframe id="gpVideo" src="https://www.youtube.com/embed/krReVqHwT70?enablejsapi=1&autoplay=1&mute=1&playsinline=1&rel=0" title="Games Planet Video" frameborder="0" allow="autoplay; encrypted-media; fullscreen" style="position:absolute;top:0;left:0;width:100%;height:100%;" allowfullscreen></iframe>
     </div>
-    <p style="color:#cfe9f0;font-size:13px;margin-top:8px">Note: Autoplay works with sound muted on most browsers — click the video to unmute.</p>
-  </div>  <script>
-    // YouTube IFrame API: ensure autoplay (muted) and playsinline for mobile
+    <p style="color:#cfe9f0;font-size:13px;margin-top:8px">Note: Autoplay usually works muted — click to unmute.</p>
+  </div>
+
+  <script>
+    // YouTube IFrame API to nudge autoplay (video muted so most browsers allow autoplay)
     (function(){
       var tag = document.createElement('script');
       tag.src = "https://www.youtube.com/iframe_api";
@@ -197,5 +209,6 @@ in any case product is not returnable or no Replacment,</p> </div>
         }catch(err){console.warn(err)}
       };
     })();
-  </script></body>
+  </script>
+</body>
 </html>
