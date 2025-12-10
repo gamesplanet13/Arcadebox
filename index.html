@@ -1,458 +1,268 @@
 <!doctype html>
 <html lang="hi">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Games Planet (Rampur U.P) – Arcade Box & Gaming Store</title>
-  <meta name="description" content="Games Planet (Rampur U.P) – Rampur's biggest game shop offering Arcade Boxes, PS2, PS3, PS4, PS5 consoles & Coin Game Machines. Plug & Play arcade boxes — Single & Dual models, wired 2m cable." />
-  <style>
-    :root{
-      --accent:#0ea5a4;
-      --bg:#071428;
-      --card:#0b1220;
-      --glass: rgba(255,255,255,0.04);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
-      margin:0;
-      background:linear-gradient(180deg,#081124 0%,#071428 100%);
-      color:#e6eef6;
-      -webkit-font-smoothing:antialiased;
-    }
-    .container{max-width:1100px;margin:28px auto;padding:20px}
-    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;gap:12px}
-    .brand{display:flex;gap:14px;align-items:center}
-    .logo{width:60px;height:60px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px;color:#fff}
-    h1{font-size:28px;margin:0;color:#e2f9f7;font-weight:900}
-    p.lead{opacity:.95;margin:8px 0 0;font-size:15px;color:#cde2e6}
-    .highlight-box{background:var(--glass);padding:14px 18px;border-radius:12px;margin:14px 0;font-size:16px;line-height:1.65;color:#fff;border-left:4px solid var(--accent)}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:14px}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.015));padding:14px;border-radius:12px;box-shadow:0 6px 22px rgba(2,6,23,0.45);border:1px solid rgba(255,255,255,0.04)}
-    .card img{width:100%;height:160px;object-fit:cover;border-radius:8px;cursor:zoom-in}
-    .card h3{margin:10px 0 6px;font-size:18px;color:#eafefe}
-    .meta{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:#cfe9f0}
-    .price{font-weight:800;font-size:18px;color:var(--accent)}
-    .features{font-size:13.5px;color:#bcdbe2;margin:8px 0}
-    .buy-row{margin-top:10px}
-    .btn{background:var(--accent);color:#042226;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:800;border:none;display:inline-block;text-align:center;width:100%;font-size:15px}
-    .marketing{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:16px;border-radius:12px;margin-top:22px;color:#d8eff2;border:1px solid rgba(255,255,255,0.03)}
-    .warranty{background:rgba(255,255,255,0.03);padding:12px;border-radius:10px;margin:14px 0;border-left:4px solid #ffd166;color:#ffeecf}
-    footer{margin-top:28px;padding-top:16px;border-top:1px dashed rgba(255,255,255,0.05);color:#b7d4d8;font-size:14px}
-    .console-title{margin:20px 0 8px;color:#dff8f6;font-weight:800;font-size:20px}
-    .price-badge{background:rgba(0,0,0,0.25);padding:6px 8px;border-radius:8px;font-weight:700}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Games Planet (Rampur U.P) – Arcade Box & Gaming Store</title>
 
-    /* ------------------ Modal / Lightbox styles ------------------ */
-    .img-modal {
-      position:fixed;
-      inset:0;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      background:rgba(2,6,23,0.75);
-      z-index:2000;
-      padding:20px;
-    }
-    .img-modal.open { display:flex; }
-    .img-modal .modal-outer {
-      position:relative;
-      width: min(1100px, 96%);
-      max-height: 92%;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:10px;
-      box-shadow:0 18px 60px rgba(0,0,0,0.6);
-      overflow:hidden;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .img-modal .img-wrap {
-      position:relative;
-      width:100%;
-      height:100%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:transparent;
-      overflow:hidden;
-      touch-action:none;
-    }
-    .img-modal img.modal-img {
-      max-width:100%;
-      max-height:100%;
-      transform-origin:center center;
-      transition:transform 120ms ease;
-      user-select:none;
-      -webkit-user-drag:none;
-      cursor:grab;
-      will-change:transform;
-    }
-    .img-modal img.modal-img.grabbing { cursor:grabbing; }
+<style>
 
-    .img-modal .modal-controls {
-      position:absolute;
-      top:12px;
-      right:12px;
-      display:flex;
-      gap:8px;
-      z-index:2100;
-    }
-    .img-modal .control-btn {
-      background:rgba(0,0,0,0.45);
-      color:#fff;
-      border:0;
-      padding:8px 10px;
-      border-radius:8px;
-      font-weight:700;
-      cursor:pointer;
-      backdrop-filter:blur(4px);
-    }
-    .img-modal .close-btn {
-      background:#ff6b6b;
-      color:#111;
-      padding:8px 10px;
-      border-radius:8px;
-      font-weight:900;
-    }
-    .img-modal .zoom-indicator {
-      position:absolute;
-      left:12px;
-      top:14px;
-      background:rgba(0,0,0,0.35);
-      color:#e6fff9;
-      padding:6px 8px;
-      border-radius:8px;
-      font-weight:700;
-      z-index:2100;
-    }
+/* ===================== NEON FULL THEME ===================== */
+:root{
+  --neon1:#0ff;
+  --neon2:#ff00ff;
+  --neon3:#00ff99;
+  --neon4:#ffee00;
 
-    .img-modal .caption {
-      position:absolute;
-      bottom:8px;
-      left:8px;
-      right:8px;
-      text-align:center;
-      font-size:14px;
-      color:#dff8f6;
-      z-index:2100;
-      pointer-events:none;
-      text-shadow:0 1px 4px rgba(0,0,0,0.6);
-    }
+  --accent:#0ea5a4;
+  --bg:#02040a;
+  --card:#0b1220;
+  --glass:rgba(255,255,255,0.06);
+}
 
-    @media (max-width:520px){
-      .modal-outer { width:100%; height:85%; }
-      .img-modal .modal-controls { top:8px; right:8px; gap:6px; }
-    }
-  </style>
+body{
+  margin:0;
+  background:#02040a;
+  font-family:Inter,system-ui;
+  color:#e6eef6;
+}
+
+.container{
+  max-width:1100px;
+  margin:28px auto;
+  padding:20px;
+}
+
+/* ===================== NEON HEADER ===================== */
+.neon-title{
+  font-size:42px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  background:linear-gradient(90deg,var(--neon1),var(--neon2),var(--neon4));
+  -webkit-background-clip:text;
+  color:transparent;
+  text-shadow:0 0 8px var(--neon1),0 0 16px var(--neon2),0 0 22px var(--neon4);
+}
+
+.neon-contact{
+  color:var(--neon1);
+  font-size:15px;
+  font-weight:800;
+  text-shadow:0 0 6px var(--neon1);
+}
+
+/* ===================== CARDS ===================== */
+
+.card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(0,255,255,0.25);
+  border-radius:12px;
+  padding:14px;
+  box-shadow:0 0 20px rgba(0,255,255,0.15);
+  transition:0.3s;
+}
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 0 25px rgba(0,255,255,0.35);
+}
+
+.card img{
+  width:100%;
+  height:160px;
+  border-radius:10px;
+  object-fit:cover;
+  box-shadow:0 0 12px rgba(0,255,255,0.3);
+}
+
+.price-badge{
+  background:rgba(0,255,255,0.15);
+  padding:6px 10px;
+  border-radius:10px;
+  font-weight:700;
+  text-shadow:0 0 5px var(--neon1);
+}
+
+.btn{
+  background:var(--neon1);
+  padding:10px 14px;
+  border-radius:10px;
+  display:block;
+  text-align:center;
+  font-weight:800;
+  color:#000;
+  box-shadow:0 0 10px var(--neon1);
+}
+
+.highlight-box{
+  background:rgba(255,255,255,0.06);
+  padding:14px;
+  border-radius:12px;
+  border-left:4px solid var(--neon1);
+}
+
+.console-title{
+  font-size:22px;
+  font-weight:900;
+  margin-top:22px;
+  text-shadow:0 0 10px var(--neon1);
+}
+
+/* ===================== WARRANTY TOGGLE ===================== */
+
+#warrantyBtn{
+  background:var(--neon4);
+  color:#000;
+  padding:12px;
+  font-size:16px;
+  font-weight:900;
+  border:none;
+  width:100%;
+  border-radius:10px;
+  box-shadow:0 0 12px var(--neon4);
+  cursor:pointer;
+  margin-bottom:10px;
+}
+
+#warrantyBox{
+  display:none;
+  background:rgba(255,255,255,0.06);
+  border-left:4px solid var(--neon4);
+  padding:14px;
+  border-radius:10px;
+  margin-top:5px;
+  box-shadow:0 0 20px rgba(255,255,0,0.25);
+  animation:fadeSlide 0.5s ease forwards;
+}
+
+@keyframes fadeSlide{
+  from{opacity:0;transform:translateY(-8px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+</style>
+
 </head>
+
 <body>
-  <div class="container">
-    <header>
-      <div class="brand">
-        <div class="logo" aria-hidden="true">GP</div>
-        <div>
-          <h1>Games Planet (Rampur U.P)</h1>
-          <p class="lead">Arcade Box • Plug & Play Controllers • PS2 / PS3 / PC / PS4 — Wired 2m cable</p>
-        </div>
-      </div>
-      <div style="text-align:right">
-        <div style="font-size:13px;color:#9fbfc4;">Contact: <strong>+91 7983624797</strong></div>
-      </div>
-    </header>
 
-    <div class="highlight-box">
-      🔥 <strong>रामपुर की सबसे बड़ी और एकमात्र गेम शॉप</strong> जहाँ आपको मिलेंगे सभी गेम कंसोल्स — <strong>PS2, PS3, PS4, PS5, और Coin वाली Game Machines</strong>। यहाँ हर तरह के Games, Controllers, Accessories और Arcade Machines उपलब्ध हैं। अगर आप सच्चे गेमर हैं, तो यह वीडियो आपके लिए है!
-    </div>
+<div class="container">
 
-    <!-- PS2 -->
-    <div class="console-title">PS2 Compatible — Wired (2m)</div>
-    <div class="grid" aria-live="polite">
-      <article class="card">
-        <img src="single-arcade-box-ps2.jpg" alt="Single Arcade Box PS2 – Games Planet Rampur" class="lightbox-target">
-        <h3>Single Arcade Box — PS2 <span class="price-badge">₹4,499</span></h3>
-        <p class="features">Compact single-player arcade stick — ideal for Tekken, Street Fighter and retro titles.</p>
-        <div class="buy-row">
-          <a class="btn" href="order-prefill.html?product=Single%20Arcade%20Box&variant=PS2&base=4499&pack=Single">Buy Now</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <img src="dual-arcade-box-ps2.jpg" alt="Dual Arcade Box PS2 – Games Planet Rampur" class="lightbox-target">
-        <h3>Dual Arcade Box — PS2 <span class="price-badge">₹6,499</span></h3>
-        <p class="features">Full dual-player arcade box for multiplayer fun.</p>
-        <div class="buy-row">
-          <a class="btn" href="order-prefill.html?product=Dual%20Arcade%20Box&variant=PS2&base=6499&pack=Dual">Buy Now</a>
-        </div>
-      </article>
-    </div>
-
-    <!-- PS3 / PC -->
-    <div class="console-title">PS3 & PC Compatible — Wired (2m)</div>
-    <div class="grid">
-      <article class="card">
-        <img src="single-arcade-box-ps3-pc.jpg" alt="Single Arcade Box PS3 PC – Games Planet Rampur" class="lightbox-target">
-        <h3>Single Arcade Box — PS3 / PC <span class="price-badge">₹4,799</span></h3>
-        <p class="features">USB plug & play — perfect for emulators and PS3 fighting titles.</p>
-        <div class="buy-row">
-          <a class="btn" href="order-prefill.html?product=Single%20Arcade%20Box&variant=PS3-PC&base=4799&pack=Single">Buy Now</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <img src="dual-arcade-box-ps3-pc.jpg" alt="Dual Arcade Box PS3 PC – Games Planet Rampur" class="lightbox-target">
-        <h3>Dual Arcade Box — PS3 / PC <span class="price-badge">₹6,999</span></h3>
-        <p class="features">Sturdy dual setup — tournament-ready controls.</p>
-        <div class="buy-row">
-          <a class="btn" href="order-prefill.html?product=Dual%20Arcade%20Box&variant=PS3-PC&base=6999&pack=Dual">Buy Now</a>
-        </div>
-      </article>
-    </div>
-
-    <!-- PS4 -->
-    <div class="console-title">PS4 Compatible — Wired (2m)</div>
-    <div class="grid">
-      <article class="card">
-        <img src="single-arcade-box-ps4.jpg" alt="Single Arcade Box PS4 – Games Planet Rampur" class="lightbox-target">
-        <h3>Single Arcade Box — PS4 <span class="price-badge">₹6,999</span></h3>
-        <p class="features">Premium single-player arcade stick for PS4 gaming.</p>
-        <div class="buy-row">
-          <a class="btn" href="order-prefill.html?product=Single%20Arcade%20Box&variant=PS4&base=6999&pack=Single">Buy Now</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <img src="dual-arcade-box-ps4.jpg" alt="Dual Arcade Box PS4 – Games Planet Rampur" class="lightbox-target">
-        <h3>Dual Arcade Box — PS4 <span class="price-badge">₹9,999</span></h3>
-        <p class="features">Dual-player PS4 arcade box — for a true arcade feel.</p>
-        <div class="buy-row">
-          <a class="btn" href="order-prefill.html?product=Dual%20Arcade%20Box&variant=PS4&base=9999&pack=Dual">Buy Now</a>
-        </div>
-      </article>
-    </div>
-
-    <!-- NEW WARRANTY SECTION -->
-    <div class="warranty">
-      <strong>🎯 Arcade Box — Warranty Terms & Conditions</strong>
-
-      <p><strong>1. Warranty Type</strong><br>
-      This product comes with a <strong>Service-Only Warranty (1–3 months)</strong>. No part is covered under warranty.</p>
-
-      <p><strong>2. What Is NOT Covered</strong><br>
-      The arcade box does not get damaged automatically. Damage happens only due to misuse, rough handling, or physical force.</p>
-
-      <ul>
-        <li><strong>Buttons:</strong> Not covered. Replacement cost ₹33–₹55 each.</li>
-        <li><strong>Handle / Joystick:</strong> Not covered. Must be replaced if broken.</li>
-        <li><strong>Plates / Boards:</strong> Not covered. These do not fail on their own.</li>
-        <li><strong>Wires:</strong> Not covered. Loose/broken wires can be fixed by any local technician.</li>
-      </ul>
-
-      <p><strong>3. What IS Covered</strong><br>
-      Free service/checking/support assistance only. We will guide you or your local technician to fix the issue.</p>
-
-      <p><strong>4. Courier Policy</strong><br>
-      If the product is sent to us for service:</p>
-      <ul>
-        <li>Courier charges are paid by the customer.</li>
-        <li>One-side courier: ₹700–₹900</li>
-        <li>Both-side courier: ₹1400–₹1800 (Arcade box weight ~5 kg)</li>
-      </ul>
-
-      <p><strong>5. Reliability Note</strong><br>
-      We have sold arcade boxes across India for many years. Till today, not a single major issue has been reported. Buttons usually break only in gaming parlours due to rough use. Your arcade box uses high-quality components and a strong, durable body.</p>
-
-      <p><strong>6. Support Guarantee</strong><br>
-      If any issue ever arises:</p>
-      <ul>
-        <li>We will provide complete guidance and support.</li>
-        <li>Local technicians can easily repair buttons/wires.</li>
-        <li>Spare parts are always available with us.</li>
-      </ul>
-
-      <p><strong>Suggestion:</strong><br>
-      Local repair is faster and cheaper. Courier-based warranty repair becomes more costly than the part itself. Hence, Service-Only Warranty is the most practical option.</p>
-    </div>
-
-    <!-- UPDATED MARKETING SECTION (No Xbox text) -->
-    <div class="marketing">
-      <h2 style="color:#fff;font-size:18px">🎮 Arcade Box for PS2, PS3, PC & PS4 – Plug & Play Fun!</h2>
-      <p>Bring back the classic arcade experience with the all-new <strong>Games Planet Arcade Box</strong> — the ultimate plug & play fight-stick controller for your favorite consoles!</p>
-      <p>🎮 Dual Arcade Box: Perfect for 2-player action – play with friends or family<br>🕹️ Single Arcade Box: Compact & portable, ideal for solo gameplay</p>
-      <p>✅ Works on: PS2 / PS3 / PC / PS4. Plug & Play — No software needed. LED lighting (on select models).</p>
-      <p><strong>Ideal for:</strong> Tekken, Street Fighter, Mortal Kombat, Dragon Ball Z, KOF, Metal Slug.</p>
-    </div>
-
-    <footer>
-      <p style="font-size:13px;color:#9fd8d5;margin-top:18px">© 2025 Games Planet Rampur — All Rights Reserved</p>
-    </footer>
+<header style="display:flex;align-items:center;justify-content:space-between;">
+  <div>
+    <div class="neon-title">GAMES PLANET (Rampur U.P)</div>
+    <p class="neon-contact">Contact: +91 7983624797</p>
   </div>
+</header>
 
-  <!-- Modal / Lightbox element -->
-  <div class="img-modal" id="imgModal" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="modal-outer" role="document">
-      <div class="img-wrap" id="imgWrap">
-        <img src="" alt="" class="modal-img" id="modalImg">
-        <div class="caption" id="modalCaption"></div>
-      </div>
+<div class="highlight-box">
+🔥 <strong>रामपुर की सबसे बड़ी गेम शॉप!</strong> यहाँ PS2, PS3, PS4, PS5 और Coin Machines उपलब्ध हैं।
+</div>
 
-      <div class="modal-controls" id="modalControls" aria-hidden="false">
-        <button class="control-btn close-btn" id="modalClose" title="Close (Esc)">✕</button>
-        <button class="control-btn" id="zoomOut" title="Zoom Out">−</button>
-        <button class="control-btn" id="zoomIn" title="Zoom In">+</button>
-        <button class="control-btn" id="zoomReset" title="Reset">Reset</button>
-      </div>
+<!-- ===================== PS2 UPDATED PRICES ===================== -->
 
-      <div class="zoom-indicator" id="zoomIndicator">100%</div>
-    </div>
-  </div>
+<div class="console-title">PS2 Compatible — Wired (2m)</div>
+<div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;">
+  
+  <article class="card">
+    <img src="single-arcade-box-ps2.jpg" class="lightbox-target">
+    <h3>Single Arcade Box — PS2 <span class="price-badge">₹2,799</span></h3>
+    <p class="features">Compact single-player arcade stick — ideal for Tekken, Street Fighter and retro titles.</p>
+    <a class="btn">Buy Now</a>
+  </article>
 
-  <!-- Floating WhatsApp (kept as contact) -->
-  <div style="position:fixed;right:18px;bottom:18px;z-index:1500">
-    <a class="wh-btn" href="https://wa.me/917983624797?text=Hi%20I%20want%20to%20buy%20Arcade%20Box" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:34px;height:34px">
-    </a>
-  </div>
+  <article class="card">
+    <img src="dual-arcade-box-ps2.jpg" class="lightbox-target">
+    <h3>Dual Arcade Box — PS2 <span class="price-badge">₹5,499</span></h3>
+    <p class="features">Full dual-player arcade box for multiplayer fun.</p>
+    <a class="btn">Buy Now</a>
+  </article>
 
-  <script>
-  (function(){
-    const modal=document.getElementById('imgModal');
-    const modalImg=document.getElementById('modalImg');
-    const modalCaption=document.getElementById('modalCaption');
-    const imgWrap=document.getElementById('imgWrap');
-    const zoomIndicator=document.getElementById('zoomIndicator');
-    const closeBtn=document.getElementById('modalClose');
-    const zoomInBtn=document.getElementById('zoomIn');
-    const zoomOutBtn=document.getElementById('zoomOut');
-    const zoomResetBtn=document.getElementById('zoomReset');
+</div>
 
-    let scale=1;
-    let minScale=0.5;
-    let maxScale=5;
-    let startX=0,startY=0;
-    let translateX=0,translateY=0;
-    let isPanning=false;
-    let pointerId=null;
+<!-- ===================== PS3 / PC UPDATED PRICES ===================== -->
 
-    function updateTransform(){
-      modalImg.style.transform=`translate(${translateX}px, ${translateY}px) scale(${scale})`;
-      zoomIndicator.textContent=Math.round(scale*100)+'%';
-    }
+<div class="console-title">PS3 & PC Compatible — Wired (2m)</div>
+<div class="grid">
+  
+  <article class="card">
+    <img src="single-arcade-box-ps3-pc.jpg" class="lightbox-target">
+    <h3>Single Arcade Box — PS3 / PC <span class="price-badge">₹3,199</span></h3>
+    <p class="features">USB plug & play — perfect for emulators and PS3 fighting titles.</p>
+    <a class="btn">Buy Now</a>
+  </article>
 
-    document.querySelectorAll('.lightbox-target').forEach(img=>{
-      img.addEventListener('click',function(){
-        modalImg.src=img.src;
-        modalImg.alt=img.alt||'';
-        modalCaption.textContent=img.alt||'';
-        scale=1; translateX=0; translateY=0;
-        updateTransform();
-        modal.classList.add('open');
-        modal.setAttribute('aria-hidden','false');
-        closeBtn.focus();
-      });
-    });
+  <article class="card">
+    <img src="dual-arcade-box-ps3-pc.jpg" class="lightbox-target">
+    <h3>Dual Arcade Box — PS3 / PC <span class="price-badge">₹6,299</span></h3>
+    <p class="features">Sturdy dual setup — tournament-ready controls.</p>
+    <a class="btn">Buy Now</a>
+  </article>
 
-    function closeModal(){
-      modal.classList.remove('open');
-      modal.setAttribute('aria-hidden','true');
-    }
+</div>
 
-    closeBtn.addEventListener('click',closeModal);
+<!-- ===================== PS4 UPDATED PRICES ===================== -->
 
-    modal.addEventListener('click',function(e){
-      if(e.target===modal) closeModal();
-    });
+<div class="console-title">PS4 Compatible — Wired (2m)</div>
+<div class="grid">
+  
+  <article class="card">
+    <img src="single-arcade-box-ps4.jpg" class="lightbox-target">
+    <h3>Single Arcade Box — PS4 <span class="price-badge">₹4,999</span></h3>
+    <p class="features">Premium single-player arcade stick for PS4 gaming.</p>
+    <a class="btn">Buy Now</a>
+  </article>
 
-    document.addEventListener('keydown',function(e){
-      if(modal.classList.contains('open')){
-        if(e.key==='Escape') closeModal();
-        if(e.key==='+'||e.key==='='){ scale=Math.min(maxScale,scale+0.25); updateTransform();}
-        if(e.key==='-'){ scale=Math.max(minScale,scale-0.25); updateTransform();}
-        if(e.key==='0'){ scale=1; translateX=0; translateY=0; updateTransform();}
-      }
-    });
+  <article class="card">
+    <img src="dual-arcade-box-ps4.jpg" class="lightbox-target">
+    <h3>Dual Arcade Box — PS4 <span class="price-badge">₹9,999</span></h3>
+    <p class="features">Dual-player PS4 arcade box — for a true arcade feel.</p>
+    <a class="btn">Buy Now</a>
+  </article>
 
-    zoomInBtn.addEventListener('click',()=>{ scale=Math.min(maxScale,scale+0.25); updateTransform(); });
-    zoomOutBtn.addEventListener('click',()=>{ scale=Math.max(minScale,scale-0.25); updateTransform(); });
-    zoomResetBtn.addEventListener('click',()=>{ scale=1; translateX=0; translateY=0; updateTransform(); });
+</div>
 
-    modal.addEventListener('wheel',function(e){
-      if(!modal.classList.contains('open')) return;
-      e.preventDefault();
-      const delta=-e.deltaY;
-      const zoomStep=delta>0?1.12:1/1.12;
-      const newScale=Math.min(maxScale,Math.max(minScale,+(scale*zoomStep).toFixed(3)));
-      const rect=modalImg.getBoundingClientRect();
-      const mouseX=e.clientX-rect.left-rect.width/2;
-      const mouseY=e.clientY-rect.top-rect.height/2;
-      const scaleRatio=newScale/scale;
-      translateX=translateX-mouseX*(scaleRatio-1);
-      translateY=translateY-mouseY*(scaleRatio-1);
-      scale=newScale;
-      updateTransform();
-    },{passive:false});
+<!-- ===================== Warranty Toggle ===================== -->
 
-    imgWrap.addEventListener('pointerdown',function(e){
-      if(!modal.classList.contains('open')) return;
-      isPanning=true;
-      pointerId=e.pointerId;
-      imgWrap.setPointerCapture(pointerId);
-      startX=e.clientX; startY=e.clientY;
-      modalImg.classList.add('grabbing');
-    });
+<button id="warrantyBtn">📜 Warranty Details देखें</button>
 
-    imgWrap.addEventListener('pointermove',function(e){
-      if(!isPanning||e.pointerId!==pointerId) return;
-      const dx=e.clientX-startX;
-      const dy=e.clientY-startY;
-      startX=e.clientX; startY=e.clientY;
-      translateX+=dx; translateY+=dy;
-      updateTransform();
-    });
+<div id="warrantyBox">
+  <h3>🎯 Arcade Box — Warranty Terms & Conditions</h3>
 
-    imgWrap.addEventListener('pointerup',function(e){
-      if(e.pointerId!==pointerId) return;
-      isPanning=false;
-      imgWrap.releasePointerCapture(pointerId);
-      pointerId=null;
-      modalImg.classList.remove('grabbing');
-    });
+  <p><strong>1. Warranty Type:</strong> Service-Only Warranty (1–3 Months). No parts covered.</p>
 
-    imgWrap.addEventListener('pointercancel',function(e){
-      if(e.pointerId!==pointerId) return;
-      isPanning=false;
-      imgWrap.releasePointerCapture(pointerId);
-      pointerId=null;
-      modalImg.classList.remove('grabbing');
-    });
+  <strong>2. Not Covered:</strong>
+  <ul>
+    <li>Buttons</li>
+    <li>Joystick</li>
+    <li>Plates/Boards</li>
+    <li>Wires</li>
+  </ul>
 
-    let lastTap=0;
-    imgWrap.addEventListener('touchend',function(){
-      const currentTime=Date.now();
-      if(currentTime-lastTap<300){
-        if(scale===1) scale=2.2;
-        else{ scale=1; translateX=0; translateY=0; }
-        updateTransform();
-      }
-      lastTap=currentTime;
-    });
+  <p><strong>3. Covered:</strong> Free service/checking assistance.</p>
+  <p><strong>4. Courier:</strong> One-side ₹700–₹900, Both-side ₹1400–₹1800</p>
 
-    modalImg.addEventListener('dragstart',e=>e.preventDefault());
-  })();
-  </script>
+  <p><strong>5. Reliability:</strong> India भर में एक भी major issue नहीं।</p>
 
-  <script>
-    (function(){
-      var tag=document.createElement('script');
-      tag.src="https://www.youtube.com/iframe_api";
-      var firstScript=document.getElementsByTagName('script')[0];
-      firstScript.parentNode.insertBefore(tag,firstScript);
-      window.onYouTubeIframeAPIReady=function(){
-        try{
-          new YT.Player('gpVideo',{playerVars:{'playsinline':1},events:{onReady:function(e){try{e.target.mute();e.target.playVideo();}catch(err){}}}});
-        }catch(err){console.warn(err)}
-      };
-    })();
-  </script>
+  <p><strong>6. Support:</strong> Complete guidance + spare parts available.</p>
+</div>
+
+<script>
+let wb=document.getElementById("warrantyBox");
+let btn=document.getElementById("warrantyBtn");
+
+btn.onclick=function(){
+  if(wb.style.display==="block"){
+    wb.style.display="none";
+    btn.textContent="📜 Warranty Details देखें";
+  } else {
+    wb.style.display="block";
+    btn.textContent="🔽 Hide Warranty Details";
+  }
+}
+</script>
+
+</div>
+
 </body>
 </html>
