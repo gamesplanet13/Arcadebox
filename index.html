@@ -497,5 +497,24 @@
     })();
   </script>
 
-<script src="https://gamesplanet13.github.io/arcade-accessories-/ps2-style-footer.js?v=20261016-ps2-view"></script></body>
+<script src="https://gamesplanet13.github.io/arcade-accessories-/ps2-style-footer.js?v=20261016-ps2-view"></script><script>
+/* Keep unavailable arcade boxes in the central inventory, never show sold-out cards. */
+(async function(){
+ try{
+  const res=await fetch('https://gamesplanet13.github.io/arcade-accessories-/data/master-products.json?t='+Date.now(),{cache:'no-store'});
+  if(!res.ok)return;
+  const {records={}}=await res.json();
+  const norm=x=>String(x||'').trim().toLowerCase().replace(/[‐‑–—−]/g,'-').replace(/\s+/g,' ');
+  document.querySelectorAll('article.card').forEach(card=>{
+   const title=card.querySelector('h3');
+   if(!title)return;
+   const name=[...title.childNodes].filter(n=>n.nodeType===Node.TEXT_NODE).map(n=>n.textContent).join(' ').trim();
+   const info=records[norm(name)];
+   if(info&&(info.hiddenFromStore===true||info.available===false||Number(info.stock)===0)){
+    card.hidden=true;card.style.setProperty('display','none','important');
+   }
+  });
+ }catch(err){console.warn('Games Planet stock check is unavailable',err);}
+})();
+</script></body>
 </html>
